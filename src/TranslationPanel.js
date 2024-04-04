@@ -8,9 +8,9 @@ const TranslationPanel = () => {
 
     const translateText = async () => {
         try {
-            const apiUrl = fromLanguage === 'en'
-                ? 'http://165.232.184.61:5000/bangla'
-                : 'http://165.232.184.61:5000/english';
+            const apiUrl = toLanguage === 'bn'
+                ? 'http://165.232.184.61:5000/english'
+                : 'http://165.232.184.61:5000/bangla';
 
             const response = await fetch(apiUrl, {
                 method: 'POST',
