@@ -5,7 +5,6 @@ import TranslationPanel from './TranslationPanel';
 function App() {
   return (
     <div className="App">
-      <h1>Translation Panel</h1>
       <TranslationPanel />
     </div>
   );
