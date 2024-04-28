@@ -139,8 +139,7 @@ const TranslationPanel = () => {
                 display: "flex",
                 width: "50%",
                 height: "100%",
-                flexDirection: 'column',
-                
+                flexDirection: "column",
               }}
             >
               <textarea
@@ -154,31 +153,37 @@ const TranslationPanel = () => {
                   padding: "20px",
                   overflow: "auto",
                   resize: "none",
-                //   borderColor: 'gray'
+                  //   borderColor: 'gray'
                 }}
               />
               <button
                 onClick={() => {
-                  navigator.clipboard.writeText(text);
+                  //   navigator.clipboard.writeText(text);
+                  //   alert("Text copied to clipboard!");
+                  const textarea = document.createElement("textarea");
+                  textarea.value = text;
+                  document.body.appendChild(textarea);
+                  textarea.select();
+                  document.execCommand("copy");
+                  document.body.removeChild(textarea);
                   alert("Text copied to clipboard!");
                 }}
                 style={{
-                //   alignSelf: "center",
-                //   padding: "10px 20px",
+                  //   alignSelf: "center",
+                  //   padding: "10px 20px",
                   background: "none",
                   color: "#034E6F",
                   border: "none",
-                //   borderRadius: "5px",
+                  //   borderRadius: "5px",
                   cursor: "pointer",
-                  display: 'flex',
-                  justifyContent: 'flex-start',
-                  width: '40px',
-                  marginLeft: '20px',
-                  marginTop: '10px',
-                  
+                  display: "flex",
+                  justifyContent: "flex-start",
+                  width: "40px",
+                  marginLeft: "20px",
+                  marginTop: "10px",
                 }}
               >
-                <FiCopy size={30}/>
+                <FiCopy size={30} />
               </button>
             </div>
             <div
@@ -192,44 +197,46 @@ const TranslationPanel = () => {
                 width: "50%",
                 border: "none",
                 padding: "20px",
-                
+
                 display: "flex",
-                flexDirection: 'column',
+                flexDirection: "column",
                 // justifyContent: 'space-between'
               }}
             >
-                <div style={{height: "calc(100% - 140px)",
-            overflow: "auto",}}>
-              {translatedText}
+              <div style={{ height: "calc(100% - 140px)", overflow: "auto" }}>
+                {translatedText}
               </div>
               <button
                 onClick={() => {
-                  navigator.clipboard.writeText(translatedText);
+                  //   navigator.clipboard.writeText(translatedText);
+                  //   alert("Text copied to clipboard!");
+                  const textarea = document.createElement("textarea");
+                  textarea.value = translatedText;
+                  document.body.appendChild(textarea);
+                  textarea.select();
+                  document.execCommand("copy");
+                  document.body.removeChild(textarea);
                   alert("Text copied to clipboard!");
                 }}
                 style={{
-                //   alignSelf: "center",
-                //   padding: "10px 20px",
+                  //   alignSelf: "center",
+                  //   padding: "10px 20px",
                   background: "none",
                   color: "#034E6F",
                   border: "none",
-                //   borderRadius: "5px",
+                  //   borderRadius: "5px",
                   cursor: "pointer",
-                  display: 'flex',
-                  justifyContent: 'flex-start',
-                  width: '40px',
-                  marginTop: '30px',
-                  
+                  display: "flex",
+                  justifyContent: "flex-start",
+                  width: "40px",
+                  marginTop: "30px",
                 }}
               >
-                <FiCopy size={30}/>
+                <FiCopy size={30} />
               </button>
-              
             </div>
-            
           </div>
         </div>
-        
       </div>
       <div className="Footer">
         <p style={{ fontWeight: "bold" }}>
