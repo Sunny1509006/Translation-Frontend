@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./TranslationPanel.css";
+import { FiCopy } from "react-icons/fi";
 
 const TranslationPanel = () => {
   const [text, setText] = useState("");
@@ -75,7 +76,6 @@ const TranslationPanel = () => {
         <div className="translation-box">
           <div className="translation-box-header">
             <div className="header-box-style">
-              {/* <label>Translate from:</label> */}
               <button
                 className="button-style"
                 onClick={() => setFromLanguage("en")}
@@ -103,7 +103,6 @@ const TranslationPanel = () => {
               style={{ marginLeft: "-40px" }}
             ></div>
             <div className="header-box-style">
-              {/* <label>Translate to:</label> */}
               <button
                 className="button-style"
                 onClick={() => setToLanguage("bn")}
@@ -127,78 +126,116 @@ const TranslationPanel = () => {
               </button>
             </div>
           </div>
-          <div style={{
-            width: '100%',
-            display: 'flex',
-            justifyContent: 'space-between',
-            height: '100%',
-
-          }}>
           <div
             style={{
+              width: "100%",
               display: "flex",
-              width: "50%",
+              justifyContent: "space-between",
               height: "100%",
             }}
           >
-            <textarea
-              value={text}
-              onChange={(e) => setText(e.target.value)}
-              placeholder="Enter text to translate"
-              // rows={4}
-              // cols={50}
+            <div
               style={{
-                height: "calc(100% - 140px)",
-                width: "100%",
-                border: "none",
-                padding: "20px",
-                overflow: "auto",
+                display: "flex",
+                width: "50%",
+                height: "100%",
+                flexDirection: 'column',
+                
               }}
-            />
-            
-          </div>
-          <div
+            >
+              <textarea
+                value={text}
+                onChange={(e) => setText(e.target.value)}
+                placeholder="Enter text to translate"
+                style={{
+                  height: "calc(100% - 140px)",
+                  width: "calc(100% - 40px)",
+                  border: "none",
+                  padding: "20px",
+                  overflow: "auto",
+                  resize: "none",
+                //   borderColor: 'gray'
+                }}
+              />
+              <button
+                onClick={() => {
+                  navigator.clipboard.writeText(text);
+                  alert("Text copied to clipboard!");
+                }}
+                style={{
+                //   alignSelf: "center",
+                //   padding: "10px 20px",
+                  background: "none",
+                  color: "#034E6F",
+                  border: "none",
+                //   borderRadius: "5px",
+                  cursor: "pointer",
+                  display: 'flex',
+                  justifyContent: 'flex-start',
+                  width: '40px',
+                  marginLeft: '20px',
+                  marginTop: '10px',
+                  
+                }}
+              >
+                <FiCopy size={30}/>
+              </button>
+            </div>
+            <div
               className="translation-box-middle-border"
               style={{ height: "347px" }}
             ></div>
-          <div
-            style={{
-              height: "calc(100% - 140px)",
-              width: "50%",
-              border: "none",
-              padding: "20px",
-              overflow: "auto",
-              display: 'flex',
 
-            }}
-          >
-            {translatedText}
-          </div>
+            <div
+              style={{
+                height: "100% ",
+                width: "50%",
+                border: "none",
+                padding: "20px",
+                
+                display: "flex",
+                flexDirection: 'column',
+                // justifyContent: 'space-between'
+              }}
+            >
+                <div style={{height: "calc(100% - 140px)",
+            overflow: "auto",}}>
+              {translatedText}
+              </div>
+              <button
+                onClick={() => {
+                  navigator.clipboard.writeText(translatedText);
+                  alert("Text copied to clipboard!");
+                }}
+                style={{
+                //   alignSelf: "center",
+                //   padding: "10px 20px",
+                  background: "none",
+                  color: "#034E6F",
+                  border: "none",
+                //   borderRadius: "5px",
+                  cursor: "pointer",
+                  display: 'flex',
+                  justifyContent: 'flex-start',
+                  width: '40px',
+                  marginTop: '30px',
+                  
+                }}
+              >
+                <FiCopy size={30}/>
+              </button>
+              
+            </div>
+            
           </div>
         </div>
-
-        {/* <div>
-          <label>Translate from:</label>
-          <select
-            value={fromLanguage}
-            onChange={(e) => setFromLanguage(e.target.value)}
-          >
-            <option value="en">English</option>
-            <option value="bn">Bangla</option>
-          </select>
-        </div>
-        <div>
-          <label>Translate to:</label>
-          <select
-            value={toLanguage}
-            onChange={(e) => setToLanguage(e.target.value)}
-          >
-            <option value="bn">Bangla</option>
-            <option value="en">English</option>
-          </select>
-        </div> */}
-
-        {/* <button onClick={translateText}>Translate</button> */}
+        
+      </div>
+      <div className="Footer">
+        <p style={{ fontWeight: "bold" }}>
+          Copyright © 2023, EBLICT, All Right Reserved
+        </p>
+        <img src="/images/Dream71.png" />
       </div>
     </div>
   );

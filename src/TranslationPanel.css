@@ -92,3 +92,26 @@ color: #034E6F;
 width: 100px;
 
 }
+
+.Footer {
+    /* Group 1163 */
+display: flex;
+justify-content: space-between;
+align-items: center;
+position: absolute;
+width: calc(100% - 80px);
+height: 60px;
+/* left: 0px; */
+bottom: 0px;
+/* background-color: #034E6F; */
+box-shadow: 0px -4px 4px 0px #00000040;
+padding: 10px 40px;
+
+
+}
+
+.Footer img {
+    height: 35px;
+    width: 350px;
+    margin-top: -10px;
+}
