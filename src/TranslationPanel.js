@@ -1,15 +1,19 @@
 import React, { useState } from "react";
 import "./TranslationPanel.css";
 import { FiCopy } from "react-icons/fi";
+import Loader from "./Loader";
 
 const TranslationPanel = () => {
   const [text, setText] = useState("");
   const [translatedText, setTranslatedText] = useState("");
   const [fromLanguage, setFromLanguage] = useState("en");
   const [toLanguage, setToLanguage] = useState("bn");
+  const [isLoading, setIsLoading] = useState(false);
 
   const translateText = async () => {
     try {
+        // Set loading status to true when translation starts
+    setIsLoading(true);
       const apiUrl =
         toLanguage === "bn"
           ? "http://165.232.184.61:5000/english"
@@ -26,6 +30,7 @@ const TranslationPanel = () => {
       });
       const data = await response.json();
       setTranslatedText(data.result);
+      setIsLoading(false);
     } catch (error) {
       console.error("Error translating text:", error);
     }
@@ -203,9 +208,28 @@ const TranslationPanel = () => {
                 // justifyContent: 'space-between'
               }}
             >
-              <div style={{ height: "calc(100% - 140px)", overflow: "auto" }}>
-                {translatedText}
-              </div>
+              {/* <div style={{ height: "calc(100% - 140px)", overflow: "auto" }}> */}
+                {/* {translatedText} */}
+                {isLoading ? (
+                  <div
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    height: "calc(100% - 140px)",
+                  }}
+                >
+                  <Loader />
+                </div>
+                ) : (
+                  
+                  <div
+                  style={{ height: "calc(100% - 140px)", overflow: "auto", display: "flex", textAlign: 'left'}}
+                >
+                  {translatedText}
+                </div>
+                )}
+              {/* </div> */}
               <button
                 onClick={() => {
                   //   navigator.clipboard.writeText(translatedText);
