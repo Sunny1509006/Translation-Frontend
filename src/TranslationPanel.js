@@ -158,6 +158,7 @@ const TranslationPanel = () => {
                   padding: "20px",
                   overflow: "auto",
                   resize: "none",
+                  fontSize: '15px'
                   //   borderColor: 'gray'
                 }}
               />
@@ -224,7 +225,7 @@ const TranslationPanel = () => {
                 ) : (
                   
                   <div
-                  style={{ height: "calc(100% - 140px)", overflow: "auto", display: "flex", textAlign: 'left'}}
+                  style={{ height: "calc(100% - 140px)", overflow: "auto", display: "flex", textAlign: 'left', fontSize: '15px'}}
                 >
                   {translatedText}
                 </div>
