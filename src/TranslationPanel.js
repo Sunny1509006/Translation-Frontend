@@ -12,8 +12,8 @@ const TranslationPanel = () => {
 
   const translateText = async () => {
     try {
-        // Set loading status to true when translation starts
-    setIsLoading(true);
+      // Set loading status to true when translation starts
+      setIsLoading(true);
       const apiUrl =
         toLanguage === "bn"
           ? "http://165.232.184.61:5000/english"
@@ -49,35 +49,20 @@ const TranslationPanel = () => {
         <img
           src="/images/lang_of_bd.png"
           style={{
-            height: "70px",
+            height: "40px",
             padding: "15px 0px 10px 40px",
           }}
         />
         <img
           src="/images/profile.png"
           style={{
-            height: "70px",
+            height: "40px",
             padding: "15px 40px 10px 0px",
           }}
         />
       </div>
       <div className="body">
-        <div>
-          <button
-            style={{
-              background: "#2191A4",
-              borderRadius: "5px",
-              borderColor: "#FFFFFF",
-              height: "40px",
-              width: "120px",
-              color: "white",
-              fontSize: "16px",
-            }}
-            onClick={translateText}
-          >
-            Translate
-          </button>
-        </div>
+        
         <div className="translation-box">
           <div className="translation-box-header">
             <div className="header-box-style">
@@ -158,7 +143,7 @@ const TranslationPanel = () => {
                   padding: "20px",
                   overflow: "auto",
                   resize: "none",
-                  fontSize: '15px'
+                  fontSize: "15px",
                   //   borderColor: 'gray'
                 }}
               />
@@ -210,9 +195,9 @@ const TranslationPanel = () => {
               }}
             >
               {/* <div style={{ height: "calc(100% - 140px)", overflow: "auto" }}> */}
-                {/* {translatedText} */}
-                {isLoading ? (
-                  <div
+              {/* {translatedText} */}
+              {isLoading ? (
+                <div
                   style={{
                     display: "flex",
                     alignItems: "center",
@@ -222,14 +207,19 @@ const TranslationPanel = () => {
                 >
                   <Loader />
                 </div>
-                ) : (
-                  
-                  <div
-                  style={{ height: "calc(100% - 140px)", overflow: "auto", display: "flex", textAlign: 'left', fontSize: '15px'}}
+              ) : (
+                <div
+                  style={{
+                    height: "calc(100% - 140px)",
+                    overflow: "auto",
+                    display: "flex",
+                    textAlign: "left",
+                    fontSize: "15px",
+                  }}
                 >
                   {translatedText}
                 </div>
-                )}
+              )}
               {/* </div> */}
               <button
                 onClick={() => {
@@ -262,9 +252,25 @@ const TranslationPanel = () => {
             </div>
           </div>
         </div>
+        <div>
+          <button
+            style={{
+              background: "#2191A4",
+              borderRadius: "5px",
+              borderColor: "#FFFFFF",
+              height: "40px",
+              width: "120px",
+              color: "white",
+              fontSize: "16px",
+            }}
+            onClick={translateText}
+          >
+            Translate
+          </button>
+        </div>
       </div>
       <div className="Footer">
-        <p style={{ fontWeight: "bold" }}>
+        <p style={{ fontWeight: "bold", fontSize: "12px", fontWeight: '500' }}>
           Copyright © 2023, EBLICT, All Right Reserved
         </p>
         <img src="/images/Dream71.png" />
