@@ -49,14 +49,14 @@ const TranslationPanel = () => {
         <img
           src="/images/lang_of_bd.png"
           style={{
-            height: "40px",
+            height: "50px",
             padding: "15px 0px 10px 40px",
           }}
         />
         <img
           src="/images/profile.png"
           style={{
-            height: "40px",
+            height: "50px",
             padding: "15px 40px 10px 0px",
           }}
         />
