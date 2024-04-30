@@ -256,12 +256,13 @@ const TranslationPanel = () => {
           <button
             style={{
               background: "#2191A4",
-              borderRadius: "5px",
+              borderRadius: "3px",
               borderColor: "#FFFFFF",
               height: "35px",
               width: "100px",
               color: "white",
               fontSize: "14px",
+              border: "none"
             }}
             onClick={translateText}
           >
