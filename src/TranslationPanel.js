@@ -258,10 +258,10 @@ const TranslationPanel = () => {
               background: "#2191A4",
               borderRadius: "5px",
               borderColor: "#FFFFFF",
-              height: "40px",
-              width: "120px",
+              height: "35px",
+              width: "100px",
               color: "white",
-              fontSize: "16px",
+              fontSize: "14px",
             }}
             onClick={translateText}
           >
